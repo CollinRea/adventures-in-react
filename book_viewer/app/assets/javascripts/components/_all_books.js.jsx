@@ -3,13 +3,17 @@ var AllBooks = React.createClass({
     this.props.handleDelete(id);
   },
 
+  onUpdate(book) {
+    this.props.onUpdate(book);
+  },
+
   render() {
     var books= this.props.books.map((book) => {
       return (
         <div key={book.id}>
-          <h3>{book.name}</h3>
-          <p>{book.content}</p>
-          <button onClick={this.handleDelete.bind(this, book.id)}>Delete</button>
+          <Book book={book}
+                handleDelete={this.handleDelete.bind(this, book.id)}
+                handleUpdate={this.onUpdate} />
         </div>
       )
     });

@@ -17,6 +17,13 @@ var Body = React.createClass({
     this.setState({ books: newBooks });
   },
 
+  updateBooks(book) {
+    var books = this.state.books.filter((b)=> { return b.id != book.id});
+    books.push(book);
+
+    this.setState({books: books});
+  },
+
   handleSubmit(book) {
     var newState = this.state.books.concat(book);
     this.setState({ books: newState })
@@ -32,12 +39,22 @@ var Body = React.createClass({
     });
   },
 
+  handleUpdate(book) {
+    $.ajax({
+      url: `/api/v1/books/${book.id}`,
+      type: 'PUT',
+      data: { book: book },
+      success: () => {
+        this.updateBooks(book);
+      }
+    });
+  },
 
   render() {
     return (
       <div>
         <NewBook handleSubmit={this.handleSubmit} />
-        <AllBooks books={ this.state.books} handleDelete={this.handleDelete} />
+        <AllBooks books={ this.state.books} handleDelete={this.handleDelete} onUpdate={this.handleUpdate} />
       </div>
     )
   }
