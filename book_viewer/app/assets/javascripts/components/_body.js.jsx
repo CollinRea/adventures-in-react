@@ -54,7 +54,8 @@ var Body = React.createClass({
     return (
       <div>
         <NewBook handleSubmit={this.handleSubmit} />
-        <AllBooks books={ this.state.books} handleDelete={this.handleDelete} onUpdate={this.handleUpdate} />
+        <AllBooks  books={ this.state.books} handleDelete={this.handleDelete} onUpdate={this.handleUpdate} />
+        <ViewBook />
       </div>
     )
   }

@@ -18,7 +18,7 @@ var AllBooks = React.createClass({
       )
     });
     return (
-      <div>
+      <div id="book-list" >
         {books}
       </div>
     )

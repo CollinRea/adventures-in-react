@@ -17,3 +17,19 @@
 //= require react_ujs
 //= require components
 //= require_tree .
+
+
+$(document).ready(function() {
+
+  $("body").on('click', '#full-screen',function() {
+    $('iframe').addClass("full-screen");
+    $(this).blur();
+  });
+
+  $(window).on('keyup', function(e) {
+    if (e.which == 27 ) {
+      $('iframe').removeClass('full-screen');
+    }
+  });
+
+});
