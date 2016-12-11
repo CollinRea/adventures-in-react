@@ -26,6 +26,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Gem to provide respond_to helper methods in controllers
 gem 'responders'
 
+# Rails React gem
+gem 'react-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
